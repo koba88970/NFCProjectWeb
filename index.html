@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Play WAV</title>
+    <!-- Google Fontsのインポート -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <style>
         body {
             display: flex;
@@ -30,17 +32,22 @@
             max-width: 100%; /* 画像の最大幅を設定 */
             transition: transform 0.2s ease; /* アニメーションのスムーズな移行 */
         }
+        /* クリック時のアニメーション */
+        #playImage:active {
+            transform: scale(0.75); /* 画像が大きく沈み込む */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>タップしてボイスを再生します</h2>
+        <h1>音声再生ページ</h1>
+        <h2>以下の画像をクリックして音声を再生します。</h2>
 
         <!-- 画像を配置 -->
-        <img id="playImage" src="imageMolchan.png" alt="Play Audio">
+        <img id="playImage" src="image.png" alt="Play Audio">
     </div>
 
-    <audio id="audioPlayer" src="audioMolchan.wav"></audio>
+    <audio id="audioPlayer" src="audio.wav"></audio>
 
     <script>
         window.onload = function() {
@@ -48,7 +55,7 @@
             var playImage = document.getElementById('playImage');
 
             playImage.addEventListener('mousedown', function() {
-                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
+                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
             });
 
             playImage.addEventListener('mouseup', function() {
@@ -60,7 +67,7 @@
             });
 
             playImage.addEventListener('touchstart', function() {
-                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
+                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
             });
 
             playImage.addEventListener('touchend', function() {
@@ -69,6 +76,9 @@
 
             playImage.addEventListener('click', function() {
                 audio.play();
+                if (navigator.vibrate) {
+                    navigator.vibrate(200); // 200ミリ秒バイブレーション
+                }
             });
         };
     </script>
