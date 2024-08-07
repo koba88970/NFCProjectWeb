@@ -8,11 +8,22 @@
         /* 画像のスタイル */
         #playImage {
             cursor: pointer;
+            width: 100%; /* 画像が画面幅に合わせてサイズ変更 */
+            max-width: 300px; /* 画像の最大幅を設定 */
             transition: transform 0.2s ease; /* アニメーションのスムーズな移行 */
         }
         /* クリック時のアニメーション */
         #playImage:active {
             transform: scale(0.95); /* 画像が少し沈み込む */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
         }
     </style>
 </head>
