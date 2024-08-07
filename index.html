@@ -25,10 +25,6 @@
             max-width: 100%; /* 画像の最大幅を設定 */
             transition: transform 0.2s ease; /* アニメーションのスムーズな移行 */
         }
-        /* クリック時のアニメーション */
-        #playImage:active {
-            transform: scale(0.75); /* 画像が少し沈み込む */
-        }
     </style>
 </head>
 <body>
@@ -46,6 +42,26 @@
         window.onload = function() {
             var audio = document.getElementById('audioPlayer');
             var playImage = document.getElementById('playImage');
+
+            playImage.addEventListener('mousedown', function() {
+                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
+            });
+
+            playImage.addEventListener('mouseup', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
+
+            playImage.addEventListener('mouseleave', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
+
+            playImage.addEventListener('touchstart', function() {
+                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
+            });
+
+            playImage.addEventListener('touchend', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
 
             playImage.addEventListener('click', function() {
                 audio.play();
