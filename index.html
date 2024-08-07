@@ -7,18 +7,20 @@
 </head>
 <body>
     <h1>音声再生ページ</h1>
-    <p>ページをタップすると音声を再生します。</p>
-    
+    <p>以下の画像をクリックして音声を再生します。</p>
+
+    <!-- 画像を配置 -->
+    <img id="playImage" src="image.png" alt="Play Audio" style="cursor: pointer;">
+
     <audio id="audioPlayer" src="audio.wav"></audio>
 
     <script>
         window.onload = function() {
             var audio = document.getElementById('audioPlayer');
-            audio.play().catch(function(error) {
-                console.log('自動再生がブロックされました: ' + error);
-                document.body.addEventListener('click', function() {
-                    audio.play();
-                }, { once: true });
+            var playImage = document.getElementById('playImage');
+
+            playImage.addEventListener('click', function() {
+                audio.play();
             });
         };
     </script>
