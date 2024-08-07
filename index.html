@@ -34,7 +34,7 @@
         }
         /* クリック時のアニメーション */
         #playImage:active {
-            transform: scale(0.75); /* 画像が大きく沈み込む */
+            transform: scale(0.95); /* 画像が大きく沈み込む */
         }
     </style>
 </head>
@@ -54,7 +54,7 @@
             var playImage = document.getElementById('playImage');
 
             playImage.addEventListener('mousedown', function() {
-                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
+                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
             });
 
             playImage.addEventListener('mouseup', function() {
@@ -66,7 +66,7 @@
             });
 
             playImage.addEventListener('touchstart', function() {
-                playImage.style.transform = 'scale(0.75)'; /* 画像が大きく沈み込む */
+                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
             });
 
             playImage.addEventListener('touchend', function() {
