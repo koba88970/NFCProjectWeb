@@ -41,6 +41,7 @@
             max-width: 100%; /* 画像の最大幅を設定 */
             transition: transform 0.2s ease; /* アニメーションのスムーズな移行 */
             outline: none; /* フォーカスリングを非表示にする */
+            -webkit-tap-highlight-color: transparent; /* Androidタップ時の青色のオーバーレイを非表示にする */
         }
         /* クリック時のアニメーション */
         #playImage:active {
@@ -49,7 +50,7 @@
     </style>
 </head>
 <body>
-    <div class="version">バージョン 1.0.0</div>
+    <div class="version">バージョン 1.0.5</div>
 
     <div class="container">
         <h1>タップしてボイスを再生</h1>
