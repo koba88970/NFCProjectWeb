@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Image</title>
+    <title>Auto Play WAV</title>
     <!-- Google Fontsのインポート -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <style>
@@ -39,23 +39,21 @@
         #playImage {
             cursor: pointer;
             max-width: 100%; /* 画像の最大幅を設定 */
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* アニメーションのスムーズな移行 */
+            transition: transform 0.2s ease; /* アニメーションのスムーズな移行 */
             outline: none; /* フォーカスリングを非表示にする */
             -webkit-tap-highlight-color: transparent; /* Androidタップ時の青色のオーバーレイを非表示にする */
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* 画像に影を追加して浮いているように見せる */
         }
         /* クリック時のアニメーション */
         #playImage:active {
-            transform: scale(0.95) rotate(-2deg); /* 画像が沈み込み、少し回転する */
-            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1); /* 影を薄くして、沈んでいるように見せる */
+            transform: scale(0.95); /* 画像が大きく沈み込む */
         }
     </style>
 </head>
 <body>
-    <div class="version">バージョン 1.0.6</div>
+    <div class="version">バージョン 1.0.7</div>
 
     <div class="container">
-        <h1>ステッカーをタップ！</h1>
+        <h1>ステッカーをタップ！！</h1>
 
         <!-- 画像を配置 -->
         <img id="playImage" src="sample.png" alt="Open Link">
@@ -64,6 +62,26 @@
     <script>
         window.onload = function() {
             var playImage = document.getElementById('playImage');
+
+            playImage.addEventListener('mousedown', function() {
+                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
+            });
+
+            playImage.addEventListener('mouseup', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
+
+            playImage.addEventListener('mouseleave', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
+
+            playImage.addEventListener('touchstart', function() {
+                playImage.style.transform = 'scale(0.95)'; /* 画像が大きく沈み込む */
+            });
+
+            playImage.addEventListener('touchend', function() {
+                playImage.style.transform = 'scale(1)'; /* 画像が元のサイズに戻る */
+            });
 
             playImage.addEventListener('click', function() {
                 window.location.href = 'https://www.youtube.com/@Ridel.Vsinger'; // ここに開きたいURLを指定します
