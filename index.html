@@ -30,8 +30,8 @@
             text-align: center;
             margin-top: 20px;
         }
-        /* h2のフォントを変更 */
-        h2 {
+        /* h1のフォントを変更 */
+        h1 {
             font-family: 'Poppins', sans-serif; /* フォントファミリーを指定 */
             font-weight: 800; /* 太さを設定 */
         }
@@ -53,17 +53,14 @@
     <div class="version">バージョン 1.0.5</div>
 
     <div class="container">
-        <h2>タップしてボイスを再生</h2>
+        <h1>タップしてリンクを開く</h1>
 
         <!-- 画像を配置 -->
-        <img id="playImage" src="imageMolchan.png" alt="Play Audio">
+        <img id="playImage" src="imageMolchan.png" alt="Open Link">
     </div>
-
-    <audio id="audioPlayer" src="audioMolchan.wav"></audio>
 
     <script>
         window.onload = function() {
-            var audio = document.getElementById('audioPlayer');
             var playImage = document.getElementById('playImage');
 
             playImage.addEventListener('mousedown', function() {
@@ -87,12 +84,10 @@
             });
 
             playImage.addEventListener('click', function() {
-                audio.play();
-                if (navigator.vibrate) {
-                    navigator.vibrate(200); // 200ミリ秒バイブレーション
-                }
+                window.location.href = 'https://www.youtube.com/@Ridel.Vsinger'; // ここに開きたいURLを指定します
             });
         };
     </script>
 </body>
 </html>
+
